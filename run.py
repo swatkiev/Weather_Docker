@@ -32,8 +32,9 @@ def location(update: Update, context: CallbackContext) -> None:
     response_json = response.json()
     temp = response_json["main"]["temp"]
     city = response_json["name"]
+    descrip = response_json["weather"][0]["description"]
     temp2 = round(temp)
-    update.message.reply_text(f'Температура в {city}: {temp2}° C')
+    update.message.reply_text(f'Погода в {city} - температура воздуха: {temp2}°C, {descrip}')
 
 def main():
     """Запускает бота."""
